@@ -1,3 +1,14 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 /* ============ TOKENS ============ */
 :root{
   --black:#0b0908;
@@ -314,14 +325,69 @@ section{position:relative;}
 }
 .service-row:hover .service-row-fill{transform:scaleX(1);}
 
-@media (max-width:760px){
-  .service-row{grid-template-columns:1fr; gap:16px; padding:26px 0;}
-  .service-row .num{display:none;}
-  .service-price, .service-cta{justify-self:start;}
-  .service-thumb{width:60px; height:60px;}
-  .service-name{font-size:1.25rem;}
-}
+@media (max-width: 760px) {
+  /* Give the services section safe horizontal padding */
+  .services {
+    padding: 48px 20px !important;
+    box-sizing: border-box;
+  }
 
+  /* Keep the header text away from the edges and scale font cleanly */
+  .services-head {
+    margin-bottom: 32px;
+    gap: 16px;
+  }
+
+  .services-head h2 {
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+    line-height: 1.25;
+    word-break: break-word;
+    margin: 0;
+  }
+
+  .services-head p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Layout rows cleanly on mobile */
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 0;
+  }
+
+  .service-row .num {
+    display: none;
+  }
+
+  .service-row-main {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .service-thumb {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  .service-name {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .service-price, 
+  .service-cta {
+    justify-self: start;
+    margin-left: 0;
+  }
+}
 /* ============ OFFERS ============ */
 .offers{
   background:linear-gradient(150deg, #14100c 0%, #1c150e 55%, #120d09 100%);
