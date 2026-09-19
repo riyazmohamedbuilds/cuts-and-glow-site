@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuts &amp; Glow — Unisex Salon &amp; Academy</title>
+
+<!-- Critical hero image: fetch immediately, at highest priority -->
+<link rel="preload" as="image" href="images/hero-woman.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/logo.jpg">
+
+<!-- Fonts: connect early, load with swap so text never blocks render -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Site styles load before any script, so first paint is already correct -->
+<link rel="stylesheet" href="style.css">
+
+<!-- GSAP: deferred, non-blocking. Hero's own entrance uses plain CSS so it never waits on this -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">
+    <img src="images/logo.jpg" alt="Cuts & Glow logo" loading="eager" fetchpriority="high">
+    <span class="nav-logo-text">Cuts &amp; Glow<span>UNISEX SALON &amp; ACADEMY</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="nav-cta" target="_blank" rel="noopener">Book Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#offers">Offers</a>
+  <a href="#contact">Contact</a>
+  <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="nav-cta" target="_blank" rel="noopener">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-portrait" id="heroPortrait">
+    <img src="images/hero-woman.png" alt="Salon styling by Cuts & Glow" loading="eager" fetchpriority="high">
+  </div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span>Thiruvarur's Premium Unisex Salon</span></p>
+    <h1 class="hero-title">
+      <span class="line"><span>Where every</span></span>
+      <span class="line"><span>detail is <em>gold</em></span></span>
+    </h1>
+    <p class="hero-tagline">Expert hands, exceptional styles — hair, skin and bridal artistry crafted for the way you want to be seen.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll-cue"><div class="line-anim"></div><span>SCROLL</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <p class="kicker">The Salon</p>
+      <h2 class="section-title">Craft, care and <em>confidence</em> in every chair.</h2>
+      <p>Cuts &amp; Glow is Thiruvarur's unisex salon and academy, built on one idea: great style should feel personal, not rushed. Every service is handled by trained stylists who treat your hair and skin the way they'd treat their own — with patience, precision and an eye for what actually suits you.</p>
+      <p>Beyond the chair, we run a working academy — so the techniques you receive are the same ones we teach, kept current and constantly refined.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num reveal-num" data-count="12">0</div>
+          <div class="stat-label">Signature Services</div>
+        </div>
+        <div>
+          <div class="stat-num reveal-num" data-count="900">0</div>
+          <div class="stat-label">Happy Clients</div>
+          <div class="stat-note">Placeholder — update with real figure</div>
+        </div>
+        <div>
+          <div class="stat-num reveal-num" data-count="5">0</div>
+          <div class="stat-label">Years of Experience</div>
+          <div class="stat-note">Placeholder — update with real figure</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-image-wrap">
+      <div class="about-image-frame" id="aboutImgFrame">
+        <img src="images/about-man.png" alt="Precision styling at Cuts & Glow" loading="lazy">
+      </div>
+      <div class="about-image-rule"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section-pad" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div>
+        <p class="kicker">Signature Services</p>
+        <h2 class="section-title">Eight ways to <em>glow</em>.</h2>
+      </div>
+      <p>Every service is priced to fit real budgets and finished to a standard that doesn't. Rates below are placeholders — ask us for the current list.</p>
+    </div>
+    <div class="service-list">
+
+      <div class="service-row" data-price-note="true">
+        <div class="num">01</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/men_before_after.jpg" alt="Haircut and styling" loading="lazy"></div>
+          <div>
+            <div class="service-name">Haircut &amp; Styling</div>
+            <div class="service-desc">Precision cuts shaped to your face and lifestyle, finished with a full style.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Haircut%20%26%20Styling" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">02</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/hero-woman.png" alt="Hair colour" loading="lazy"></div>
+          <div>
+            <div class="service-name">Hair Colour</div>
+            <div class="service-desc">Global colour, balayage and root touch-ups using ammonia-friendly formulas.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Hair%20Colour" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">03</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/about-man.png" alt="Hair spa" loading="lazy"></div>
+          <div>
+            <div class="service-name">Hair Spa</div>
+            <div class="service-desc">Deep-conditioning rituals that rebuild strength, shine and softness.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Hair%20Spa" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">04</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/hero-woman.png" alt="Facial" loading="lazy"></div>
+          <div>
+            <div class="service-name">Facial</div>
+            <div class="service-desc">Skin-specific facials that brighten, hydrate and calm — customised on arrival.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Facial" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">05</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/bridal_makeup.jpg" alt="Bridal makeup" loading="lazy"></div>
+          <div>
+            <div class="service-name">Bridal Makeup</div>
+            <div class="service-desc">Full bridal trials and day-of artistry, built around long-wear and photography.</div>
+          </div>
+        </div>
+        <div class="service-price">On request</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20Bridal%20Makeup" class="service-cta" target="_blank" rel="noopener">Enquire</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">06</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/hero-woman.png" alt="Manicure and pedicure" loading="lazy"></div>
+          <div>
+            <div class="service-name">Manicure &amp; Pedicure</div>
+            <div class="service-desc">Classic and gel finishes with proper cuticle and callus care.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Manicure%20%26%20Pedicure" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">07</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/hero-woman.png" alt="Skin care" loading="lazy"></div>
+          <div>
+            <div class="service-name">Skin Care</div>
+            <div class="service-desc">Cleanups, de-tan and targeted treatments for everyday skin health.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Skin%20Care" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+      <div class="service-row">
+        <div class="num">08</div>
+        <div class="service-row-main">
+          <div class="service-thumb"><img src="images/men_before_after.jpg" alt="Grooming" loading="lazy"></div>
+          <div>
+            <div class="service-name">Grooming</div>
+            <div class="service-desc">Beard sculpting, shaves and men's grooming rituals, done properly.</div>
+          </div>
+        </div>
+        <div class="service-price">From ₹XXX</div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20Grooming" class="service-cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="service-row-fill"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENU / PRICING -->
+<section class="menu-section section-pad" id="menu">
+  <div class="wrap">
+    <p class="kicker">Price List</p>
+    <h2 class="section-title">The full <em>menu</em>.</h2>
+    <p style="margin-top:16px; max-width:44ch;">Browse by category — every rate below is a placeholder, easy to swap for your current price list.</p>
+
+    <div class="menu-tabs" id="menuTabs">
+      <button class="menu-tab active" data-cat="hair">Hair</button>
+      <button class="menu-tab" data-cat="colour">Colour &amp; Spa</button>
+      <button class="menu-tab" data-cat="skin">Skin &amp; Facial</button>
+      <button class="menu-tab" data-cat="bridal">Bridal &amp; Makeup</button>
+      <button class="menu-tab" data-cat="nails">Nails</button>
+      <button class="menu-tab" data-cat="grooming">Grooming</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <!-- HAIR -->
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Women's Haircut</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Consultation, wash and precision cut finished with a blow-dry.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Women%27s%20Haircut" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Men's Haircut</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Classic or modern cuts, shaped to face and hair type.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Men%27s%20Haircut" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Blow-Dry &amp; Styling</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Wash, blow-dry and finish for any occasion.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Blow-Dry%20%26%20Styling" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Hair Trim</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">A quick shape-up to maintain length and remove split ends.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Hair%20Trim" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Keratin Treatment</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Smoothing treatment that reduces frizz for months at a time.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Keratin%20Treatment" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card visible" data-cat="hair">
+        <div class="menu-card-head"><div class="menu-card-name">Hair Extensions</div><div class="menu-card-price">On request</div></div>
+        <p class="menu-card-desc">Length and volume added with quality, colour-matched hair.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Hair%20Extensions" class="menu-card-cta" target="_blank" rel="noopener">Enquire</a>
+      </div>
+
+      <!-- COLOUR & SPA -->
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Global Hair Colour</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Full-head colour in the shade of your choice.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Global%20Hair%20Colour" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Root Touch-Up</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Colour refreshed at the roots to match your existing shade.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Root%20Touch-Up" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Balayage / Highlights</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Hand-painted or foiled highlights for natural dimension.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Balayage%20%2F%20Highlights" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Classic Hair Spa</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Deep-conditioning mask, scalp massage and steam.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Classic%20Hair%20Spa" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Protein Hair Spa</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Strength-building treatment for damaged or chemically treated hair.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Protein%20Hair%20Spa" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="colour">
+        <div class="menu-card-head"><div class="menu-card-name">Scalp Detox</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Exfoliating scalp treatment to clear buildup and refresh growth.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Scalp%20Detox" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+
+      <!-- SKIN & FACIAL -->
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">Classic Facial</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Cleanse, exfoliate, mask and massage for everyday glow.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Classic%20Facial" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">Brightening Facial</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Targeted treatment to even tone and add radiance.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Brightening%20Facial" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">De-Tan Treatment</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Restores natural tone on face, neck and hands.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20De-Tan%20Treatment" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">Cleanup</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">A quick refresh — cleanse, scrub and hydrate.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Cleanup" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">Anti-Ageing Facial</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Firming, collagen-focused treatment for mature skin.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20an%20Anti-Ageing%20Facial" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="skin">
+        <div class="menu-card-head"><div class="menu-card-name">Waxing (Full Arms/Legs)</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Smooth, long-lasting hair removal using quality wax.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Waxing" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+
+      <!-- BRIDAL & MAKEUP -->
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Bridal Makeup</div><div class="menu-card-price">On request</div></div>
+        <p class="menu-card-desc">Full bridal look with trial, built for all-day wear and photos.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Bridal%20Makeup" class="menu-card-cta" target="_blank" rel="noopener">Enquire</a>
+      </div>
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Party Makeup</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Event-ready makeup for weddings, functions and parties.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Party%20Makeup" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Bridal Hairstyling</div><div class="menu-card-price">On request</div></div>
+        <p class="menu-card-desc">Updos, half-ups or curls styled to match the bridal look.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Bridal%20Hairstyling" class="menu-card-cta" target="_blank" rel="noopener">Enquire</a>
+      </div>
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Saree Draping</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Traditional or contemporary draping styles, pinned to last.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Saree%20Draping" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Engagement Look</div><div class="menu-card-price">₹X,XXX</div></div>
+        <p class="menu-card-desc">Hair and makeup package for engagement ceremonies.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20an%20Engagement%20Look" class="menu-card-cta" target="_blank" rel="noopener">Enquire</a>
+      </div>
+      <div class="menu-card" data-cat="bridal">
+        <div class="menu-card-head"><div class="menu-card-name">Bridal Package</div><div class="menu-card-price">₹XX,XXX</div></div>
+        <p class="menu-card-desc">Trial + hair + makeup bundled for the wedding day.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20the%20Bridal%20Package" class="menu-card-cta" target="_blank" rel="noopener">Enquire</a>
+      </div>
+
+      <!-- NAILS -->
+      <div class="menu-card" data-cat="nails">
+        <div class="menu-card-head"><div class="menu-card-name">Classic Manicure</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Shape, cuticle care, massage and polish.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Classic%20Manicure" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="nails">
+        <div class="menu-card-head"><div class="menu-card-name">Classic Pedicure</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Soak, exfoliation, callus care and polish.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Classic%20Pedicure" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="nails">
+        <div class="menu-card-head"><div class="menu-card-name">Gel Polish</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Chip-resistant gel finish that lasts two to three weeks.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Gel%20Polish" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="nails">
+        <div class="menu-card-head"><div class="menu-card-name">Spa Manicure &amp; Pedicure</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Extended combo with extra hydration and massage.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20Spa%20Mani%20%26%20Pedi" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+
+      <!-- GROOMING -->
+      <div class="menu-card" data-cat="grooming">
+        <div class="menu-card-head"><div class="menu-card-name">Beard Shape-Up</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Precision trim and line-up for a sharp, defined shape.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Beard%20Shape-Up" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="grooming">
+        <div class="menu-card-head"><div class="menu-card-name">Classic Shave</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Hot towel and razor shave for a smooth, clean finish.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Classic%20Shave" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="grooming">
+        <div class="menu-card-head"><div class="menu-card-name">Head Massage</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Oil-based massage to relax and stimulate the scalp.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Head%20Massage" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      <div class="menu-card" data-cat="grooming">
+        <div class="menu-card-head"><div class="menu-card-name">Grooming Combo</div><div class="menu-card-price">₹XXX</div></div>
+        <p class="menu-card-desc">Haircut, beard shape-up and head massage, bundled.</p>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Grooming%20Combo" class="menu-card-cta" target="_blank" rel="noopener">Book Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers section-pad" id="offers">
+  <div class="wrap">
+    <p class="kicker">Limited-Time</p>
+    <h2 class="section-title">Offers worth <em>booking</em> for.</h2>
+    <p style="margin-top:16px; max-width:44ch;">Placeholder promotions below — swap in your current offers any time.</p>
+  </div>
+  <div class="wrap" style="margin-top:56px;">
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="offer-tag">New Client</div>
+        <div class="offer-title">First Visit Offer</div>
+        <p class="offer-desc">A welcome discount on your first haircut or colour service with us.</p>
+        <div class="offer-price"><span class="now">XX% off</span><span class="was">Placeholder</span></div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20New%20Client%20offer" class="offer-link" target="_blank" rel="noopener">Claim on WhatsApp</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag">Bridal</div>
+        <div class="offer-title">Bridal Package</div>
+        <p class="offer-desc">Trial + bridal day makeup + hair styling, bundled for your big day.</p>
+        <div class="offer-price"><span class="now">₹XX,XXX</span><span class="was">₹XX,XXX</span></div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Bridal%20Package" class="offer-link" target="_blank" rel="noopener">Claim on WhatsApp</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag">Combo</div>
+        <div class="offer-title">Hair + Spa Combo</div>
+        <p class="offer-desc">Pair any haircut with a hair spa treatment at a bundled rate.</p>
+        <div class="offer-price"><span class="now">₹XXX</span><span class="was">₹XXX</span></div>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Hair%20%2B%20Spa%20Combo" class="offer-link" target="_blank" rel="noopener">Claim on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad" id="gallery">
+  <div class="wrap gallery-head">
+    <p class="kicker">Gallery</p>
+    <h2 class="section-title">A glimpse inside <em>Cuts &amp; Glow</em>.</h2>
+  </div>
+  <div class="gallery-track">
+    <div class="gallery-row" id="galRow1">
+      <div class="gallery-item g-tall"><img src="images/bridal_hair_wave.jpg" alt="Styling session" loading="lazy"><div class="cap">Hair Styling</div></div>
+      <div class="gallery-item g-wide"><img src="images/salon_interior.jpg" alt="Salon interior" loading="lazy"><div class="cap">Salon Interior</div></div>
+      <div class="gallery-item g-square"><img src="images/bridal_makeup.jpg" alt="Makeup artistry" loading="lazy"><div class="cap">Makeup</div></div>
+      <div class="gallery-item g-tall"><img src="images/men_before_after.jpg" alt="Colour work" loading="lazy"><div class="cap">Hair Colour</div></div>
+      <div class="gallery-item g-wide"><img src="images/bridal_hair_wave.jpg" alt="Beauty treatment" loading="lazy"><div class="cap">Beauty Treatments</div></div>
+    </div>
+    <div class="gallery-row reverse" id="galRow2">
+      <div class="gallery-item g-wide"><img src="images/men_before_after.jpg" alt="Client transformation" loading="lazy"><div class="cap">Transformation</div></div>
+      <div class="gallery-item g-square"><img src="images/updo_bun.jpg" alt="Bridal look" loading="lazy"><div class="cap">Bridal Look</div></div>
+      <div class="gallery-item g-tall"><img src="images/men_before_after.jpg" alt="Grooming session" loading="lazy"><div class="cap">Grooming</div></div>
+      <div class="gallery-item g-wide"><img src="images/bridal_hair_wave.jpg" alt="Hair transformation" loading="lazy"><div class="cap">Hair Transformation</div></div>
+      <div class="gallery-item g-square"><img src="images/updo_bun.jpg" alt="Styling detail" loading="lazy"><div class="cap">Styling Detail</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials section-pad" id="testimonials">
+  <div class="wrap">
+    <p class="kicker">Client Voices</p>
+    <h2 class="section-title">Trusted by <em>4,900+</em> reviewers.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">Placeholder testimonial — replace with a real client quote about their haircut or colour experience.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Client Name</div>
+            <div class="testi-role">Placeholder — Haircut &amp; Colour</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">Placeholder testimonial — replace with a real client quote about their bridal makeup experience.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">B</div>
+          <div>
+            <div class="testi-name">Client Name</div>
+            <div class="testi-role">Placeholder — Bridal Makeup</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">Placeholder testimonial — replace with a real client quote about their grooming experience.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Client Name</div>
+            <div class="testi-role">Placeholder — Grooming</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap">
+    <p class="kicker">Visit Us</p>
+    <h2 class="section-title">Come in, or <em>reach out</em> first.</h2>
+    <div class="contact-grid" style="margin-top:60px;">
+      <div>
+        <div class="contact-info-block">
+          <div class="contact-info-label">Address</div>
+          <div class="contact-info-value small">1st Floor, Muthuvel Complex, 4D, Durgalaya Rd, Madappuram, Thiruvarur, Tamil Nadu 610001</div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label">Opening Hours</div>
+          <div class="contact-info-value small">Placeholder — e.g. 9:00 AM – 9:00 PM, all days</div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value"><a href="tel:+919597699802">+91 95976 99802</a></div>
+        </div>
+        <div class="contact-socials">
+          <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.83 14.14c-.24.68-1.38 1.3-1.9 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.61-.6-2.85-1.23-4.7-4.1-4.84-4.29-.14-.19-1.16-1.54-1.16-2.94s.72-2.08.98-2.37c.25-.28.55-.35.74-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.18 1.53 1.92 1.05.94 1.94 1.24 2.22 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thiruvarur_cutsandglow?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.63-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.33 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.33 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="map-frame" id="mapCard">
+        <iframe
+          src="https://maps.google.com/maps?q=10.777331274729937,79.62905689273873&hl=en&z=17&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cuts & Glow location map">
+        </iframe>
+        <div class="map-badge">Cuts &amp; Glow — Thiruvarur</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;">
+      <a href="https://maps.app.goo.gl/Ax5zcCGzAcmXNU7t7" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-flex;">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Cuts & Glow logo" loading="lazy">
+          <span class="footer-brand-text">Cuts &amp; Glow</span>
+        </div>
+        <p class="footer-desc">A unisex salon &amp; academy in Thiruvarur — expert hands, exceptional styles.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigate</div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <p>Haircut &amp; Styling</p>
+        <p>Hair Colour</p>
+        <p>Bridal Makeup</p>
+        <p>Skin Care</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:+919597699802">+91 95976 99802</a>
+        <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cuts &amp; Glow Unisex Salon &amp; Academy. All rights reserved.</span>
+      <span>Thiruvarur, Tamil Nadu</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/919597699802?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="float-btn whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.83 14.14c-.24.68-1.38 1.3-1.9 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.61-.6-2.85-1.23-4.7-4.1-4.84-4.29-.14-.19-1.16-1.54-1.16-2.94s.72-2.08.98-2.37c.25-.28.55-.35.74-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.18 1.53 1.92 1.05.94 1.94 1.24 2.22 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+  </a>
+  <a href="tel:+919597699802" class="float-btn call" aria-label="Call us">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
